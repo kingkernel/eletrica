@@ -105,3 +105,14 @@ id bigint auto_increment,
 acao text,
 ocorrencia datetime,
 primary key(id))engine=innodb charset=utf8;
+
+create table modulos(
+id int auto_increment,
+modulo varchar(35),
+primary key(id))engine=innodb;
+
+create table permissoes(
+id int auto_increment,
+usuario int,
+foreign key(usuario) references usuarios(id),
+primary key(id))engine=innodb charset=utf8;
