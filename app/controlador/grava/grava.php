@@ -4,16 +4,16 @@ class grava{
 
 	}
 	public function eleitor(){
-		
+		print_r($_POST);
 		$eleitor = $_POST["eleitor"];
 		$cidade = $_POST["cidade"];
 		$bairro = $_POST["bairro"];
-		$rua = $_POST["rua"];
+		$rua = $_POST["rua"] . " - ". $bairro;
 		$numero = $_POST["numero"];
 		$email = $_POST["email"];
 		$fone1 = $_POST["fone1"];
 		$fone2 = $_POST["fone2"];
-		$zap = $_POST["zap"];
+		//$zap = $_POST["zap"];
 		$licenca = $_POST["licenca"];
 		$cadfor = $_POST["iduser"];
 		$lider = $_POST["lider"];
@@ -26,23 +26,24 @@ class grava{
 		echo $query = fastquery_messages($sql, $erro, $sucesso);
 	}
 	public function assessor(){
+		//print_r($_POST);
 		$eleitor = $_POST["eleitor"];
 		$cidade = $_POST["cidade"];
 		$bairro = $_POST["bairro"];
-		$rua = $_POST["rua"];
+		$rua = $_POST["rua"] . " - ". $bairro;
 		$numero = $_POST["numero"];
 		$email = $_POST["email"];
 		$fone1 = $_POST["fone1"];
-		$fone2 = $_POST["fone2"];
-		$zap = $_POST["zap"];
+		$nasc = $_POST["fone2"];
+		//$zap = $_POST["zap"];
 		$licenca = $_POST["licenca"];
 		$cadfor = $_POST["iduser"];
-		$sql = 'call sp_clientes("'.$eleitor.'","'.$rua.'","'.$cidade.'","'.$fone1.'","'.$email.'","'.$zap.'","'.$nasc.'")';
+		$sql = 'call sp_clientes("'.$eleitor.'","'.$rua.'","'.$cidade.'","'.$fone1.'","'.$email.'","","'.$nasc.'")';
 
 		$sucesso = '<script>result0();</script>';
 		$erro = '<script>result1();</script>';
 		echo $query = fastquery_messages($sql, $erro, $sucesso);
-		echo $sql;
+		//echo $sql;
 
 	}
 }

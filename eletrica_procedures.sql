@@ -4,7 +4,7 @@ delimiter //
 			select count(*) as existe from usuarios where nome=arg_email and senha=arg_snhpwd and ativo=1;
 		end //
 delimiter ;
--- criação de crientes
+-- criação de clientes
 delimiter //
 	create procedure sp_clientes(arg_nome varchar(50), arg_endereco varchar(75), 
 		arg_cidade varchar(35), arg_fone1 varchar(15), arg_email varchar(50),
@@ -240,7 +240,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>movimento_caixa
+-- movimento_caixa
 insert into movimento_caixa (tipomovimento, valor, dia) values (@tipomovimento, @valor, @dia);
 delimiter // 
  		 create procedure sp_add_movimento_caixa(arg_tipomovimento enum('entrada','saida'), arg_valor double(6,2), arg_dia datetime)
@@ -271,7 +271,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>produtos
+-- produtos
 insert into produtos (nomeproduto, preco, estoque, descrição) values (@nomeproduto, @preco, @estoque, @descrição);
 delimiter // 
  		 create procedure sp_add_produtos(arg_nomeproduto varchar(60), arg_preco double(6,2), arg_estoque int(11), arg_descrição text)
@@ -302,7 +302,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>servicos
+-- servicos
 insert into servicos (nomeservico, valor) values (@nomeservico, @valor);
 delimiter // 
  		 create procedure sp_add_servicos(arg_nomeservico varchar(60), arg_valor double(6,2))
@@ -333,7 +333,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>systemlog
+-- systemlog
 insert into systemlog (acao, ocorrencia) values (@acao, @ocorrencia);
 delimiter // 
  		 create procedure sp_add_systemlog(arg_acao text, arg_ocorrencia datetime)
@@ -364,7 +364,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>usuarios
+-- usuarios
 insert into usuarios (nome, senha, ativo) values (@nome, @senha, @ativo);
 delimiter // 
  		 create procedure sp_add_usuarios(arg_nome varchar(30), arg_senha varchar(64), arg_ativo tinyint(1))
@@ -395,7 +395,7 @@ delimiter //
  delimiter ;
 
 
-<strong>tabela nome: </strong>veiculos
+-- veiculos
 insert into veiculos (placa, proprietario, modelo, ano) values (@placa, @proprietario, @modelo, @ano);
 delimiter // 
  		 create procedure sp_add_veiculos(arg_placa varchar(9), arg_proprietario int(11), arg_modelo varchar(35), arg_ano year(4))
@@ -423,4 +423,8 @@ delimiter //
  			 begin
  				update veiculos set placa=arg_placa, proprietario=arg_proprietario, modelo=arg_modelo, ano=arg_ano where id=arg_id;
  			 end //
+ delimiter ;
+ 
+ delimiter //
+	create procedure sp_authuser()
  delimiter ;

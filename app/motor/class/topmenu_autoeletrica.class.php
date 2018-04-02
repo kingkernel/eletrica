@@ -44,7 +44,7 @@ class topmenu_autoeletrica {
 			$assessor->link = "/create/cliente/";
 			$eleitor = new li_item;
 			$eleitor->text = "Produtos";
-			$eleitor->link = "/create/eleitor/";
+			$eleitor->link = "/create/produtos/";
 			$tarefas = new li_item;
 			$tarefas->text = "Serviços";
 			$mecanicos = new li_item;

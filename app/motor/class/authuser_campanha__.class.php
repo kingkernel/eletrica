@@ -1,5 +1,5 @@
 <?php
-class authuser_campanha{
+class authuser_eletrica{
 	public $usuario;
 	public function __construct(){
 

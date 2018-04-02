@@ -111,8 +111,13 @@ id int auto_increment,
 modulo varchar(35),
 primary key(id))engine=innodb;
 
+insert into modulos (modulo) values ("entrada"), ("relatorios"), ("caixa");
+
 create table permissoes(
 id int auto_increment,
 usuario int,
+entrada boolean default 0,
+relatorios boolean default 0,
+caixa boolean default 0,
 foreign key(usuario) references usuarios(id),
 primary key(id))engine=innodb charset=utf8;

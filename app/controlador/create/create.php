@@ -23,12 +23,14 @@ class create {
 		$jsmaskurl = '<script src="'.urlcss($_GET).'public/js/jquery.mask.js"></script>';
 		$jsNotify = '<script src="'.urlcss($_GET).'public/js/bootstrap-notify.min.js"></script>';
 		$animateCss = '<link src="'.urlcss($_GET).'public/css/animate.min.css" rel="stylesheet">';
+		$datepicker = '<script src="'.urlcss($_GET).'public/js/bootstrap-datepicker.min.js"></script>';
+		$datepicker_br = '<script src="'.urlcss($_GET).'public/js/bootstrap-datepicker.pt-BR.min.js"></script>';
 
 		$funcaoSuccess = 'function result0(){ $.notify({message: \'<span class="glyphicon glyphicon-ok"></span> <strong>Gravado com Sucesso!</strong><hr class="message-inner-separator"><p>A informação já se encontra online a todos usuários</p>\' },{ type: \'success\', delay: 2500,animate: {enter: \'animated fadeInDown\', exit: \'animated fadeOutUp\'}, allow_dismiss:true }); $("#formAssessor")[0].reset(); };';
 		$funcaoError = 'function result1(){ $.notify({message: \'<span class="glyphicon glyphicon-hand-right"></span> <strong>Erro de gravação</strong><hr class="message-inner-separator"><p>Não foi possivel adicionar os Dados. Tente novamente <span class=""></p>\' },{ type: \'danger\', delay: 2500,animate: {enter: \'animated fadeInDown\', exit: \'animated fadeOutUp\'}, allow_dismiss:true }); $("#formAssessor")[0].reset(); };';
 		
 		$this->page->scriptsendpage = $form->cadastroIn()[2].$funcaoSuccess.$funcaoError;
-		$this->page->headersinclude .= fontawesome(urlcss($_GET)).$jsmaskurl.$animateCss.$jsNotify;
+		$this->page->headersinclude .= '<style>'.$form->cadastroIn()[1].'</style>'.fontawesome(urlcss($_GET)).$jsmaskurl.$animateCss.$jsNotify.$datepicker.$datepicker_br;
 		$this->page->render();
 		/*
 		$table = new load_table;
@@ -40,7 +42,7 @@ class create {
 	public function caddata(){
 		echo "bla bla bla";
 	}
-	public function eleitor(){
+	public function produtos(){
 		$jsmaskurl = '<script src="'.urlcss($_GET).'public/js/jquery.mask.js"></script>';
 		$jsNotify = '<script src="'.urlcss($_GET).'public/js/bootstrap-notify.min.js"></script>';
 		$animateCss = '<link src="'.urlcss($_GET).'public/css/animate.min.css" rel="stylesheet">';
