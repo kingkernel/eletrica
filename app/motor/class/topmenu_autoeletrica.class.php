@@ -34,7 +34,7 @@ class topmenu_autoeletrica {
 
 		$use_info = new li_user_info;
 		$use_info->nomedisplay = "usuario"; //$_SESSION["userinfo"]["nome"];
-		//$use_info->exitlink = "/auth/logout/";
+		$use_info->exitlink = "/auth/logout/";
 
 		$cadastro = new li_dropdown;
 		$cadastro->text = "Cadastro";
