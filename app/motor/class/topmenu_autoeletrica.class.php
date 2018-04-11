@@ -11,10 +11,26 @@ class topmenu_autoeletrica {
 		$nav = new topnav;
 		$nav->estilo = "inverse";
 		$nav->brand = " Auto Elétrica AJJR";
-		$relatorio = new li_item;
-			$relatorio->text = "Relatórios";
-			$relatorio->link = "/report/";
-			$relatorio->iconclass = "glyphicon glyphicon-list-alt";
+
+		$relatorio1 = new li_dropdown;
+		$relatorio1->text = "Relatórios";
+		$relatorio1->iconclass = "glyphicon glyphicon-list-alt";
+			$clientes = new li_item;
+			$clientes->text = "Clientes";
+			$clientes->link = "/report/clientes/";
+		$relatorio1->subitem = [$clientes];
+
+		$servico = new li_dropdown;
+		$servico->text = "Serviços";
+		$servico->iconclass = "glyphicon glyphicon-cog";
+				$entrada = new li_item;
+				$entrada->text = "Entrada de Serviço";
+				$entrada->link = "/create/serventrada/";
+				$saida = new li_item;
+				$saida->text = "Finalizar serviço";
+				$saida->link = "/servico/finalizar/";
+		$servico->subitem = [$entrada, $saida];
+
 
 		$caixa = new li_dropdown;
 			$caixa->text = "Caixa" ;
@@ -47,13 +63,17 @@ class topmenu_autoeletrica {
 			$eleitor->link = "/create/produtos/";
 			$tarefas = new li_item;
 			$tarefas->text = "Serviços";
+			$tarefas->link = "/create/servicos/";
 			$mecanicos = new li_item;
-			$mecanicos->text = "Mecânicos";
-			$mecanicos->link = "/create/mecanico/";
+			$mecanicos->text = "Funcionários";
+			$mecanicos->link = "/create/funcionarios/";
+			$veiculos = new li_item;
+			$veiculos->text = "Veículos";
+			$veiculos->link = "/create/veiculos/";
 
-		$cadastro->subitem = [$assessor, $eleitor, $mecanicos, $tarefas];
+		$cadastro->subitem = [$assessor, $eleitor, $mecanicos, $tarefas, $veiculos];
 
-	$nav->itensleft = [$cadastro, $relatorio, $caixa];
+	$nav->itensleft = [$cadastro, $relatorio1, $servico, $caixa];
 	$nav->itensright = [$use_info];
 	$this->nav = $nav->html();
 	return $this->nav;

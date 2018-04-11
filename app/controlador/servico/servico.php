@@ -1,6 +1,6 @@
 <?php
-class report{
-		public $page;
+class servico{
+	public $page;
 	public function __construct(){
 		auth::checkAuth();
 		$menuup = new topmenu_autoeletrica;
@@ -11,13 +11,12 @@ class report{
 		return $this;
 	}
 	public function index(){
-		$this->page->render();
 
 	}
-	public function clientes(){
-		$this->page->bodycontent .= "clientes";
-		$this->page->render();
+	public function entrada(){
 		
+		$this->page->bodycontent .=  "entrada";
+		$this->page->render();
 	}
 }
 ?>

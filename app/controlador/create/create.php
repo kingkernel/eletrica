@@ -32,22 +32,45 @@ class create {
 		$this->page->scriptsendpage = $form->cadastroIn()[2].$funcaoSuccess.$funcaoError;
 		$this->page->headersinclude .= '<style>'.$form->cadastroIn()[1].'</style>'.fontawesome(urlcss($_GET)).$jsmaskurl.$animateCss.$jsNotify.$datepicker.$datepicker_br;
 		$this->page->render();
-
-		/*
-		$table = new load_table;
-		$cn =new dbconnect;
-		$table->db = $cn->connect();
-		$table->loadAllDb();
-		*/
 	}
 	public function caddata(){
 		echo "bla bla bla";
 	}
 	public function produtos(){
 		$form = new produtosForms;
+		$jsmaskurl = '<script src="'.urlcss($_GET).'public/js/jquery.mask.js"></script>';
+		
+		$this->page->headersinclude .= $jsmaskurl;
+		$js = '$(document).ready(function(){$("#id_preco").mask("999.99");$("#id_codprod").mask("999999999999999999999");$("#id_quant").mask("99999")});';
+		
+		$this->page->scriptsendpage .= $js;
 		$this->page->bodycontent .= $form->html();
-		$this->page
-		->render();
+
+		$this->page->render();
+	}
+	public function servicos(){
+		$form = new servicosForms;
+		$jsmaskurl = '<script src="'.urlcss($_GET).'public/js/jquery.mask.js"></script>';
+		$js = '$(document).ready(function(){$("#id_valserv").mask("9999.99");});';
+		$this->page->bodycontent .=$form->html();
+		$this->page->scriptsendpage .= $js;
+		$this->page->headersinclude .= $jsmaskurl;
+		$this->page->render();
+	}
+	public function funcionarios(){
+		$form = new funcionariosForms;
+		$this->page->bodycontent .= $form->html();
+		$this->page->render();
+	}
+	public function veiculos(){
+		$form = new veiculosForms;
+		$this->page->bodycontent .= $form->html();
+		$this->page->render();
+	}
+	public function serventrada(){
+		$form = new servEntradaForms;
+		$this->page->bodycontent .= $form->html();
+		$this->page->render();
 	}
 }
 ?>

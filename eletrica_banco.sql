@@ -29,6 +29,7 @@ fone1 varchar(15),
 email varchar(50),
 whatsapp boolean default 0,
 nascimento date,
+cnpj_cpf varchar(30),
 primary key(id))engine=innodb charset=utf8;
 
 create table funcionarios(
@@ -37,7 +38,7 @@ nome varchar(60),
 endereco varchar(75),
 cidade varchar(35),
 bairro varchar(35),
-funcao varchar(45),
+funcao varchar(45) default "Mecânico",
 primary key(id))engine=innodb charset=utf8;
 
 insert into funcionarios (nome) values ("Jeferson Oliveira Almeida"), ("Joelson Oliveira Almeida"), ("Robson Oliveira Almeida"), ("João Paulo Vasques de Almeida"), ("Junior Solza Rodrigues"), ("Jeferson Solza Solza"), ("Zaqueu Silva Santos"), ("Josiane Moraes de Moraes");
@@ -45,6 +46,7 @@ insert into funcionarios (nome) values ("Jeferson Oliveira Almeida"), ("Joelson 
 create table produtos(
 id int auto_increment,
 nomeproduto varchar(60),
+codpro int,
 preco double(6,2),
 estoque int,
 descrição text,
@@ -120,4 +122,25 @@ entrada boolean default 0,
 relatorios boolean default 0,
 caixa boolean default 0,
 foreign key(usuario) references usuarios(id),
+primary key(id))engine=innodb charset=utf8;
+
+-- alter table clientes add column cnpj_cpf varchar(30);
+create table entrada_serv(
+id int auto_increment,
+arranhoes varchar(100),
+arranhoes_text varchar(100),
+farois varchar(100),
+farois_text varchar(100),
+objetos varchar(100),
+objetos_text varchar(100),
+vidros varchar(100),
+vidros_text varchar(100),
+calibragem varchar(100),
+calibragem_text varchar(100),
+limpeza varchar(100),
+limpeza_text varchar(100),
+orcamento varchar(100),
+descricao varchar(100),
+valor varchar(100),
+entrada varchar(100),
 primary key(id))engine=innodb charset=utf8;

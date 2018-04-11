@@ -1,3 +1,35 @@
+-- procedures adicionadas e funcionando
+delimiter // 
+ 		 create procedure sp_add_servicos(arg_nomeservico varchar(60), arg_valor double(6,2))
+ 			 begin
+ 				insert into servicos (nomeservico, valor) values(arg_nomeservico, arg_valor);
+ 			 end //
+ delimiter ;
+ 
+delimiter //
+	create procedure sp_add_funcionarios(arg_nome varchar(60), arg_endereco varchar(75), arg_cidade varchar(35),
+arg_bairro varchar(35), arg_funcao varchar(45))
+	begin
+		insert into funcionarios (nome, endereco, cidade, bairro, funcao) values 
+		(arg_nome, arg_endereco, arg_cidade, arg_bairro, arg_funcao);
+	end //
+delimiter ;
+
+delimiter // 
+ 		 create procedure sp_add_veiculos(arg_placa varchar(9), arg_proprietario int(11), arg_modelo varchar(35), arg_ano year(4))
+ 			 begin
+ 				insert into veiculos (placa, proprietario, modelo, ano) values(arg_placa, arg_proprietario, arg_modelo, arg_ano);
+ 			 end //
+ delimiter ;
+ 
+delimiter //
+	create procedure sp_add_entradaserv(arg_arranhoes varchar(100), arg_arranhoes_text varchar(100), arg_farois varchar(100), arg_farois_text varchar(100), arg_objetos varchar(100), arg_objetos_text varchar(100), arg_vidros varchar(100), arg_vidros_text varchar(100), arg_calibragem varchar(100), arg_calibragem_text varchar(100), arg_limpeza varchar(100), arg_limpeza_text varchar(100), arg_orcamento varchar(100), arg_descricao varchar(100), arg_valor varchar(100), arg_entrada varchar(100))
+		begin
+			insert into entrada_serv(arranhoes, arranhoes_text, farois, farois_text, objetos, objetos_text, vidros, vidros_text, calibragem, calibragem_text, limpeza, limpeza_text, orcamento, descricao, valor, entrada) values (arg_arranhoes, arg_arranhoes_text, arg_farois, arg_farois_text, arg_objetos, arg_objetos_text, arg_vidros, arg_vidros_text, arg_calibragem, arg_calibragem_text, arg_limpeza, arg_limpeza_text, arg_orcamento, arg_descricao, arg_valor, arg_entrada);
+		end //
+delimiter ;
+-- #####################################################################
+
 delimiter //
 	create procedure sp_login(arg_email varchar(50), arg_snhpwd varchar(64))
 		begin
@@ -272,11 +304,11 @@ delimiter //
 
 
 -- produtos
-insert into produtos (nomeproduto, preco, estoque, descrição) values (@nomeproduto, @preco, @estoque, @descrição);
+-- insert into produtos (nomeproduto, preco, estoque, descrição) values (@nomeproduto, @preco, @estoque, @descrição);
 delimiter // 
- 		 create procedure sp_add_produtos(arg_nomeproduto varchar(60), arg_preco double(6,2), arg_estoque int(11), arg_descrição text)
+ 		 create procedure sp_add_produtos(arg_nomeproduto varchar(60), arg_codprod int, arg_preco double(6,2), arg_estoque int(11), arg_descrição text)
  			 begin
- 				insert into produtos (nomeproduto, preco, estoque, descrição) values(arg_nomeproduto, arg_preco, arg_estoque, arg_descrição);
+ 				insert into produtos (nomeproduto, codprod, preco, estoque, descrição) values(arg_nomeproduto, arg_codprod, arg_preco, arg_estoque, arg_descrição);
  			 end //
  delimiter ;
 
