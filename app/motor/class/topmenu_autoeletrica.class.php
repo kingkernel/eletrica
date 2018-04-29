@@ -29,7 +29,10 @@ class topmenu_autoeletrica {
 				$saida = new li_item;
 				$saida->text = "Finalizar serviço";
 				$saida->link = "/servico/finalizar/";
-		$servico->subitem = [$entrada, $saida];
+				$agendamento = new li_item;
+				$agendamento->text = "Agendamento";
+				$agendamento->link = "/agendamento/criar/";
+		$servico->subitem = [$entrada, $saida, $agendamento];
 
 
 		$caixa = new li_dropdown;

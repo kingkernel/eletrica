@@ -28,6 +28,13 @@ delimiter //
 			insert into entrada_serv(arranhoes, arranhoes_text, farois, farois_text, objetos, objetos_text, vidros, vidros_text, calibragem, calibragem_text, limpeza, limpeza_text, orcamento, descricao, valor, entrada) values (arg_arranhoes, arg_arranhoes_text, arg_farois, arg_farois_text, arg_objetos, arg_objetos_text, arg_vidros, arg_vidros_text, arg_calibragem, arg_calibragem_text, arg_limpeza, arg_limpeza_text, arg_orcamento, arg_descricao, arg_valor, arg_entrada);
 		end //
 delimiter ;
+
+delimiter //
+	create procedure sp_all_clientes()
+	begin
+		select * from clientes;
+	end //
+delimiter ;
 -- #####################################################################
 
 delimiter //
