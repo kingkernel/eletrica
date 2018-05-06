@@ -16,8 +16,9 @@ class edita {
 	public function cliente(){
 		$dados = explode("/", $_GET["urldigitada"]);
 		$form = new clienteForms;
-		$form->editaClientes($dados[2]);
-		$this->page->bodycontent .= $form->cadIn[0];
+		//$form->editaClientes($dados[2]);
+		//$this->page->bodycontent .= $form->cadIn[0];
+		$this->page->bodycontent .= $form->editaClientes($dados[2]);
 		$this->page->render();
 		
 		//echo $sql;
