@@ -38,15 +38,16 @@ class grava{
 		$eleitor = $_POST["eleitor"];
 		$cidade = $_POST["cidade"];
 		$bairro = $_POST["bairro"];
-		$rua = $_POST["rua"] . " - ". $bairro;
 		$numero = $_POST["numero"];
+		$rua = $_POST["rua"] . " - " . $numero;
 		$email = $_POST["email"];
 		$fone1 = $_POST["fone1"];
 		$nasc = $_POST["fone2"];
+		$cpf = $_POST["cpf"];
 		//$zap = $_POST["zap"];
 		$licenca = $_POST["licenca"];
 		$cadfor = $_POST["iduser"];
-		$sql = 'call sp_clientes("'.$eleitor.'","'.$rua.'","'.$cidade.'","'.$fone1.'","'.$email.'","","'.$nasc.'")';
+		$sql = 'call sp_clientes("'.$eleitor.'","'.$rua.'","'.$cidade.'","'.$fone1.'","'.$email.'","","'.$nasc.'", "'.$bairro.'", "'.$cpf.'")';
 
 		$sucesso = '<script>result0();</script>';
 		$erro = '<script>result1();</script>';

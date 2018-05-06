@@ -16,7 +16,7 @@ class inputAddOn{
 		$icone = '<span class="input-group-addon"><i class="'.$this->inputIcon.'" aria-hidden="true"></i></span>';
 		$this->somacontent = '<div class="input-group">';
 			if ($this->sideInput == "right"){$this->somacontent.= $icone;};
-		$this->somacontent .= '<input type="'.$this->inputType.'" class="form-control" name="'.$this->inputName.'" id="id_'.$this->inputName.'"  placeholder="'.$this->inputPlaceholder.'" value="'.$this->inputName.'" '.$this->inputExtras.'/>';
+		$this->somacontent .= '<input type="'.$this->inputType.'" class="form-control" name="'.$this->inputName.'" id="id_'.$this->inputName.'"  placeholder="'.$this->inputPlaceholder.'" value="'.$this->inputValue.'" '.$this->inputExtras.'/>';
 			if ($this->sideInput == "left"){$this->somacontent.= $icone;};
 		$this->somacontent .= '</div>';
 		return $this->somacontent;

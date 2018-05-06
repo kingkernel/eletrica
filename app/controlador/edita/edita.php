@@ -6,6 +6,9 @@ class edita {
 		$menuup = new topmenu_autoeletrica;
 		$menuup->estilo = "inverse";
 		$pagina = new page_site;
+		$jsmaskurl = '<script src="'.urlcss($_GET).'public/js/jquery.mask.js"></script>';
+		$awesome = fontawesome(urlcss($_GET));
+		$pagina->headersinclude .= $jsmaskurl.$awesome;
 		$pagina->bodycontent = $menuup->html();
 		$this->page = $pagina;
 		return $this;
@@ -13,7 +16,13 @@ class edita {
 	public function cliente(){
 		$dados = explode("/", $_GET["urldigitada"]);
 		$form = new clienteForms;
-		$form->editaClientes("Daniel j santos");
+		$form->editaClientes($dados[2]);
+		$this->page->bodycontent .= $form->cadIn[0];
+		$this->page->render();
+		
+		//echo $sql;
+		//print_r($dados);
+		/*
 
 		$this->page->bodycontent .= '<div class="container"><div class="row"><fieldset ><legend> Edição de Clientes </legend><form id="formAssessor" action="/grava/cliente/" method="post" onsubmit="javascript: return false;">'.$form->cadastroIn()[0].'</fieldset></div></div><div id="ajax">';
 
@@ -30,6 +39,7 @@ class edita {
 		$this->page->headersinclude .= '<style>'.$form->cadastroIn()[1].'</style>'.fontawesome(urlcss($_GET)).$jsmaskurl.$animateCss.$jsNotify.$datepicker.$datepicker_br;
 		$this->page->render();
 		//print_r($dados); Array ( [0] => edita [1] => cliente [2] => 4 )
+		*/
 	}
 }
 ?>

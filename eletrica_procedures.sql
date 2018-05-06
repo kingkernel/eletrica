@@ -47,11 +47,11 @@ delimiter ;
 delimiter //
 	create procedure sp_clientes(arg_nome varchar(50), arg_endereco varchar(75), 
 		arg_cidade varchar(35), arg_fone1 varchar(15), arg_email varchar(50),
-		arg_whatsapp boolean, arg_nascimento date)
+		arg_whatsapp boolean, arg_nascimento date, arg_bairro varchar(35), arg_cpf varchar(30))
 		begin
-			insert into clientes (nome, endereco, cidade, fone1, email, whatsapp, nascimento) values (
+			insert into clientes (nome, endereco, cidade, fone1, email, whatsapp, nascimento, bairro, cnpj_cpf) values (
 				arg_nome, arg_endereco, arg_cidade, arg_fone1, arg_email, 
-				arg_whatsapp, arg_nascimento);
+				arg_whatsapp, arg_nascimento, arg_bairro, arg_cpf);
 		end //
 delimiter ;
 -- criação de produtos
@@ -118,7 +118,7 @@ delimiter //
 delimiter // 
  		 create procedure sp_sel_clientes( arg_id int(11))
  			 begin
- 				select * from clientes where id="arg_id"; 
+ 				select * from clientes where id=arg_id; 
  			 end //
  delimiter ;
 
